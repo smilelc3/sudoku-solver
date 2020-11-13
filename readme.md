@@ -42,8 +42,8 @@
 
 
 ## 运行程序实例
-`test`文件夹中，含有各种测试样例，包含号称
-[最难数独](https://baike.baidu.com/item/%E4%B8%96%E7%95%8C%E6%9C%80%E9%9A%BE%E6%95%B0%E7%8B%AC/13848819) 样例`hardest1`文件
+[test](test) 文件夹中，含有各种测试样例，包含号称
+[最难数独](https://baike.baidu.com/item/%E4%B8%96%E7%95%8C%E6%9C%80%E9%9A%BE%E6%95%B0%E7%8B%AC/13848819) 样例文件[hardest1](test/hardest1)
 
 最难数独运行程序结果
 ```text
