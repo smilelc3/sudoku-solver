@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="5082f637-3ffc-4a8e-a961-121d0373281d" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Go File" />
+      </list>
+    </option>
+  </component>
+  <component name="GOROOT" path="C:\Users\smile\sdk\go1.15.1" />
+  <component name="GoLibraries">
+    <option name="indexEntireGoPath" value="false" />
+  </component>
+  <component name="ProjectId" id="1jxhmimuvnP2rPqq5jYFmYDjGYK" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DefaultGoTemplateProperty" value="Go File" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="configurable.Global.GOPATH.is.expanded" value="true" />
+    <property name="configurable.Module.GOPATH.is.expanded" value="false" />
+    <property name="configurable.Project.GOPATH.is.expanded" value="true" />
+    <property name="go.import.settings.migrated" value="true" />
+    <property name="go.tried.to.enable.integration.vgo.integrator" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/other" />
+    <property name="settings.editor.selected.configurable" value="go" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\smile\go\src\sudoku-solver\other" />
+      <recent name="C:\Users\smile\go\src\sudoku-solver" />
+      <recent name="C:\Users\smile\go\src\sudoku-solver\test" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\smile\go\src\sudoku-solver\other" />
+      <recent name="C:\Users\smile\go\src\sudoku-solver\test" />
+      <recent name="C:\Users\smile\go\src\sudoku-solver\Sudoku" />
+      <recent name="C:\Users\smile\go\src\sudoku-solver\Sudoku\drop_algorithm" />
+      <recent name="C:\Users\smile\go\src\sudoku-solver\Sudoku\" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="GoApplicationRunConfiguration" factoryName="Go Application">
+      <module name="sudoku-solver" />
+      <working_directory value="$PROJECT_DIR$" />
+      <go_parameters value="-i" />
+      <kind value="FILE" />
+      <filePath value="$PROJECT_DIR$" />
+      <package value="sudoku" />
+      <directory value="$PROJECT_DIR$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="go build sudoku" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+      <module name="sudoku-solver" />
+      <working_directory value="$PROJECT_DIR$" />
+      <kind value="PACKAGE" />
+      <filePath value="$PROJECT_DIR$/main.go" />
+      <package value="sudoku-solver" />
+      <directory value="$PROJECT_DIR$" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="GoTestRunConfiguration" factoryName="Go Test">
+      <module name="sudoku-solver" />
+      <working_directory value="$PROJECT_DIR$" />
+      <go_parameters value="-i" />
+      <framework value="gotest" />
+      <kind value="DIRECTORY" />
+      <package value="sudoku" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Go Build.go build sudoku" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VgoProject">
+    <integration-enabled>true</integration-enabled>
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="561" y="246" key="#Go_Modules" timestamp="1604804649648">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="561" y="246" key="#Go_Modules/0.0.1536.824@0.0.1536.824" timestamp="1604804649648" />
+    <state x="223" y="67" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1604766442801">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="223" y="67" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1604766442801" />
+    <state x="522" y="213" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1605282833461">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="522" y="213" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.824@0.0.1536.824" timestamp="1605282833461" />
+    <state x="524" y="114" key="#xdebugger.evaluate" timestamp="1605275584810">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="524" y="114" key="#xdebugger.evaluate/0.0.1536.824@0.0.1536.824" timestamp="1605275584810" />
+    <state width="1493" height="324" key="GridCell.Tab.0.bottom" timestamp="1605284072976">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="324" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1605284072976" />
+    <state width="1493" height="324" key="GridCell.Tab.0.center" timestamp="1605284072976">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="324" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1605284072976" />
+    <state width="1493" height="324" key="GridCell.Tab.0.left" timestamp="1605284072976">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="324" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1605284072976" />
+    <state width="1493" height="324" key="GridCell.Tab.0.right" timestamp="1605284072976">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="324" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1605284072976" />
+    <state width="1493" height="325" key="GridCell.Tab.1.bottom" timestamp="1605282212775">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="325" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1605282212775" />
+    <state width="1493" height="325" key="GridCell.Tab.1.center" timestamp="1605282212775">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="325" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1605282212775" />
+    <state width="1493" height="325" key="GridCell.Tab.1.left" timestamp="1605282212775">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="325" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1605282212775" />
+    <state width="1493" height="325" key="GridCell.Tab.1.right" timestamp="1605282212775">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="325" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1605282212775" />
+    <state x="270" y="57" key="SettingsEditor" timestamp="1605235790951">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="270" y="57" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1605235790951" />
+    <state width="775" height="419" key="XDebugger.FullValuePopup" timestamp="1605272469854">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="775" height="419" key="XDebugger.FullValuePopup/0.0.1536.824@0.0.1536.824" timestamp="1605272469854" />
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1604998715454">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1604998715454" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/main.go</url>
+          <line>5</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/Sudoku/sudoku_class.go</url>
+          <line>14</line>
+          <option name="timeStamp" value="12" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/Sudoku/sudoku_drop_algorithm.go</url>
+          <line>50</line>
+          <option name="timeStamp" value="50" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+    <watches-manager>
+      <configuration name="GoApplicationRunConfiguration">
+        <watch expression="sudoku.Show()" language="go" />
+      </configuration>
+    </watches-manager>
+  </component>
+</project>
