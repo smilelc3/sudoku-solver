@@ -19,11 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5082f637-3ffc-4a8e-a961-121d0373281d" name="Default Changelist" comment="优化步骤记录方式">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sudoku/sudoku_drop_algorithm.go" beforeDir="false" afterPath="$PROJECT_DIR$/Sudoku/sudoku_drop_algorithm.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/readme.md" afterDir="false" />
-    </list>
+    <list default="true" id="5082f637-3ffc-4a8e-a961-121d0373281d" name="Default Changelist" comment="优化步骤记录方式" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -161,22 +157,22 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="579" y="117" key="Github.UntrackedFilesDialog/0.0.1536.824@0.0.1536.824" timestamp="1605285036973" />
-    <state width="1493" height="324" key="GridCell.Tab.0.bottom" timestamp="1605325866864">
+    <state width="1493" height="324" key="GridCell.Tab.0.bottom" timestamp="1605339532904">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="324" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1605325866864" />
-    <state width="1493" height="324" key="GridCell.Tab.0.center" timestamp="1605325866864">
+    <state width="1493" height="324" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1605339532904" />
+    <state width="1493" height="324" key="GridCell.Tab.0.center" timestamp="1605339532904">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="324" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1605325866864" />
-    <state width="1493" height="324" key="GridCell.Tab.0.left" timestamp="1605325866864">
+    <state width="1493" height="324" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1605339532904" />
+    <state width="1493" height="324" key="GridCell.Tab.0.left" timestamp="1605339532904">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="324" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1605325866864" />
-    <state width="1493" height="324" key="GridCell.Tab.0.right" timestamp="1605325866864">
+    <state width="1493" height="324" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1605339532904" />
+    <state width="1493" height="324" key="GridCell.Tab.0.right" timestamp="1605339532904">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="324" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1605325866864" />
+    <state width="1493" height="324" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1605339532904" />
     <state width="1493" height="325" key="GridCell.Tab.1.bottom" timestamp="1605285495287">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -197,10 +193,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="270" y="57" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1605235790951" />
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1605325885997">
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1605339588840">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1605325885997" />
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1605339588840" />
     <state width="775" height="419" key="XDebugger.FullValuePopup" timestamp="1605272469854">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -225,7 +221,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
           <url>file://$PROJECT_DIR$/Sudoku/sudoku_drop_algorithm.go</url>
-          <line>54</line>
+          <line>47</line>
           <option name="timeStamp" value="50" />
         </line-breakpoint>
       </breakpoints>

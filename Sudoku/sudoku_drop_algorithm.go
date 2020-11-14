@@ -64,7 +64,7 @@ findBlankCell:
 
 	// 检测是否会产生无解单元格
 checkNoSolutionCell:
-	for nearCell, _ := range cell.AffectedCellsSet {
+	for nearCell := range cell.AffectedCellsSet {
 		if isNoSolutionCell(nearCell) { // 存在无解单元格
 			goto isExistNoSolutionCell
 		}
@@ -167,7 +167,7 @@ func getCellUsedCount(cell *Cell) [10]uint8 {
 	result := [10]uint8{}
 	//标记已用数
 	nearCells := cell.GetCellAffectedCellsSet()
-	for nearCell, _ := range nearCells {
+	for nearCell := range nearCells {
 		if nearCell.Val != 0 {
 			result[nearCell.Val]++
 		}
