@@ -1,7 +1,8 @@
 # 数独求解 go语言版
 
-数独wiki
-[https://zh.wikipedia.org/wiki/%E6%95%B8%E7%8D%A8](https://zh.wikipedia.org/wiki/%E6%95%B8%E7%8D%A8)
+源代码`github`地址：[https://github.com/smilelc3/sudoku-solver](https://github.com/smilelc3/sudoku-solver)
+
+关于数独`wiki`介绍：[https://zh.wikipedia.org/wiki/%E6%95%B8%E7%8D%A8](https://zh.wikipedia.org/wiki/%E6%95%B8%E7%8D%A8)
 
 一个数独样例
 ```text
@@ -30,6 +31,7 @@
 
 ## 算法介绍
 一般正常数独耗时<10ms，算法主要是深度优先搜索，但是做了几点优化：
+
 1. 优先填写唯一解的单元格
 2. 下一次搜索节点为全局可能性最小单元格（类贪心）
 
