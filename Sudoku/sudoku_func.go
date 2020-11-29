@@ -7,8 +7,6 @@ import (
 	"strings"
 )
 
-
-
 // 构造函数
 func NewSudoku() *Sudoku {
 	sudoku := new(Sudoku)
@@ -32,17 +30,14 @@ func NewSudoku() *Sudoku {
 			sudoku.Boxes[boxIdx].Cells[cellIdx] = targetCell
 			sudoku.Boxes[boxIdx].BoxIdx = boxIdx
 
-
 			// 构建Cell(值，索引，父链)
 			dataIdx := row*9 + col
 			targetCell.Idx = dataIdx
-			targetCell.Row = & sudoku.Rows[row]
-			targetCell.Col = & sudoku.Cols[col]
-			targetCell.Box = & sudoku.Boxes[boxIdx]
+			targetCell.Row = &sudoku.Rows[row]
+			targetCell.Col = &sudoku.Cols[col]
+			targetCell.Box = &sudoku.Boxes[boxIdx]
 
 			sudoku.Cells[dataIdx] = targetCell
-
-
 
 		}
 	}
@@ -58,7 +53,7 @@ func NewSudoku() *Sudoku {
 }
 
 //从List加载数据
-func (Sudoku *Sudoku) LoadDataFromArray(data [81] uint8) {
+func (Sudoku *Sudoku) LoadDataFromArray(data [81]uint8) {
 	for idx, cell := range Sudoku.Cells {
 		cell.Val = data[idx]
 	}
@@ -66,10 +61,10 @@ func (Sudoku *Sudoku) LoadDataFromArray(data [81] uint8) {
 }
 
 //从控制框中输入数据
-func (Sudoku *Sudoku) LoadDataFromInput(){
+func (Sudoku *Sudoku) LoadDataFromInput() {
 	fmt.Println("请输入81个 [1-9] 的数字， 待填写数字用 0 代替, 数字间用空格间隔")
-	var data [9*9] uint8
-	for idx := 0; idx < (9*9); idx++ {
+	var data [9 * 9]uint8
+	for idx := 0; idx < (9 * 9); idx++ {
 		_, err := fmt.Scanf("%d", &data[idx])
 		if err != nil {
 			panic(err)
@@ -107,7 +102,7 @@ func (Sudoku *Sudoku) LoadDataFromFile(filePath string, splitMark string) {
 				panic("文件数据错误")
 			}
 			Sudoku.Cells[idx].Val = uint8(val)
-			idx ++
+			idx++
 		}
 	}
 	if idx != 81 {
@@ -119,35 +114,34 @@ func (Sudoku *Sudoku) LoadDataFromFile(filePath string, splitMark string) {
 }
 
 // 通过坐标获取值
-func (Sudoku *Sudoku) GetValByCoords(row uint8,  col uint8) uint8{
+func (Sudoku *Sudoku) GetValByCoords(row uint8, col uint8) uint8 {
 	return Sudoku.GetCellByCoords(row, col).Val
 }
 
 //通过坐标获取Box
-func (Sudoku *Sudoku) GetBoxByCoords(row uint8,  col uint8) *Box {
+func (Sudoku *Sudoku) GetBoxByCoords(row uint8, col uint8) *Box {
 	return &Sudoku.Boxes[Sudoku.getBoxIdxByCoords(row, col)]
 }
 
 // 通过坐标返回Box idx
-func (Sudoku *Sudoku) getBoxIdxByCoords(row uint8,  col uint8) uint8 {
-	boxIdx :=  row/3 * (9/3) + col/3
+func (Sudoku *Sudoku) getBoxIdxByCoords(row uint8, col uint8) uint8 {
+	boxIdx := row/3*(9/3) + col/3
 	return boxIdx
 }
 
 //通过坐标返回Cell位于Box的内部 cell id
-func (Sudoku *Sudoku) GetCellIdByCoords(row uint8,  col uint8) uint8 {
-	cellIdx := row%3 *3 + col%3
+func (Sudoku *Sudoku) GetCellIdByCoords(row uint8, col uint8) uint8 {
+	cellIdx := row%3*3 + col%3
 	return cellIdx
 }
 
 //通过坐标获取Cell对象
-func (Sudoku *Sudoku) GetCellByCoords(row uint8,  col uint8) *Cell {
+func (Sudoku *Sudoku) GetCellByCoords(row uint8, col uint8) *Cell {
 	return Sudoku.GetBoxByCoords(row, col).Cells[Sudoku.GetCellIdByCoords(row, col)]
 }
 
-
 // 格式化数独输出
-func (Sudoku *Sudoku) GetFormString() string{
+func (Sudoku *Sudoku) GetFormString() string {
 	if Sudoku.isLoadData == false {
 		panic("请先加载数据")
 	}
@@ -159,21 +153,21 @@ func (Sudoku *Sudoku) GetFormString() string{
 		for col = 0; col < 9; col++ {
 			if Sudoku.GetValByCoords(row, col) == 0 {
 				formString += string(Sudoku.blankInShow)
-			}else {
+			} else {
 				formString += fmt.Sprintf("%d", Sudoku.GetValByCoords(row, col))
 			}
 
 			if col == 2 || col == 5 {
 				formString += " | "
-			}else if col == 8 {
+			} else if col == 8 {
 				formString += " |"
-			}else {
+			} else {
 				formString += "  "
 			}
 
 		}
 		formString += "\n"
-		if row == 2 || row == 5{
+		if row == 2 || row == 5 {
 			formString += "|---------+---------+---------|" + "\n"
 		}
 	}
@@ -190,20 +184,18 @@ func (Sudoku *Sudoku) GetDataByArray() [81]uint8 {
 	return data
 }
 
-
 // 设置blank
-func (Sudoku * Sudoku) SetBlank(blank byte){
+func (Sudoku *Sudoku) SetBlank(blank byte) {
 	Sudoku.blankInShow = blank
 }
 
 // 打印数独
-func (Sudoku *Sudoku) Show(){
+func (Sudoku *Sudoku) Show() {
 	fmt.Print(Sudoku.GetFormString())
 }
 
-
 // 获取某一个cell所受影响的周边cells的集合（借助map[*Cell]struct{}实现）
-func (cell *Cell) GetCellAffectedCellsSet() map[*Cell]struct{}{
+func (cell *Cell) GetCellAffectedCellsSet() map[*Cell]struct{} {
 	if cell.AffectedCellsSet != nil {
 		return cell.AffectedCellsSet
 	}
