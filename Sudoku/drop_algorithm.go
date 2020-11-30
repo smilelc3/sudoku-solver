@@ -9,6 +9,36 @@ import "fmt"
 // 无解单元格 noSolutionCell
 // 无唯一数单元格 notOnlyCell
 
+// 补全唯一单元格，便于其他算法复用
+func FillAllOnlyCells(sudoku *Sudoku) {
+	cell := findBlankCellFromIdx(sudoku, 0)
+	if cell == nil { // 已补全所有
+		return
+	}
+	var hasOnlyCell = false
+	var availableNums []uint8
+	var startIdx uint8 = 0
+	for { //遍历所有空白单元格，找唯一单元格
+		cell = findBlankCellFromIdx(sudoku, startIdx)
+		if cell == nil {
+			break // 找完所有cell
+		}
+		hasOnlyCell, availableNums = isOnlyCell(cell)
+		if hasOnlyCell {
+			// 找到唯一数
+			break
+		}
+		startIdx = cell.Idx + 1
+	}
+	if hasOnlyCell && len(availableNums) > 0 && cell != nil { // 找到唯一单元格，填数
+		cell.Val = availableNums[0]
+		FillAllOnlyCells(sudoku)
+	} else {
+		return
+	}
+
+}
+
 // 栈缓存搜索(dfs)可解答案
 func DropSolver(sudoku *Sudoku) {
 	// 维护一个查找步骤栈

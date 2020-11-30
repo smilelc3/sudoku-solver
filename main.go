@@ -102,5 +102,17 @@ func main() {
 		{0, 0, 1, 0, 1, 1, 0}, //4
 		{0, 1, 1, 0, 0, 1, 1}, //5
 		{0, 1, 0, 0, 0, 0, 1}} //6
-	Sudoku.DanceLinkSolver(data)
+
+	fmt.Println(Sudoku.BaseDanceLinkXSolver(data))
+
+	sudoku := Sudoku.NewSudoku()
+	sudoku.LoadDataFromFile("test/easy", ",")
+	sudoku.Show()
+
+	startTime := time.Now().UnixNano()
+	Sudoku.DanceLinkSolver(sudoku) // 解数独
+	endTime := time.Now().UnixNano()
+
+	sudoku.Show()
+	fmt.Println("所用时间", float64((endTime-startTime)/1e3), "us")
 }

@@ -87,13 +87,13 @@ func (Sudoku *Sudoku) LoadDataFromFile(filePath string, splitMark string) {
 	idx := 0
 	stringLines := strings.Split(string(data), "\n")
 	for _, Line := range stringLines {
-		stringVals := strings.Split(Line, splitMark)
-		for _, stringVal := range stringVals {
-			stringVal = strings.Trim(stringVal, " \t\r")
-			if stringVal == "" {
+		stringValues := strings.Split(Line, splitMark)
+		for _, stringValue := range stringValues {
+			stringValue = strings.Trim(stringValue, " \t\r")
+			if stringValue == "" {
 				continue
 			}
-			val, err := strconv.Atoi(stringVal)
+			val, err := strconv.Atoi(stringValue)
 			if err != nil {
 				fmt.Println("文件内容错误")
 				panic(err)
