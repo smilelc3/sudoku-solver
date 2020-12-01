@@ -52,7 +52,9 @@
 * 其实可以做二进制编码优化，时间复杂度降低一个数量级。但主要是为了代码易读，并非为了极致时间效率；
 
 ### 二、优化的舞蹈链算法
+
 ![](document/danceLink.png)
+
 舞蹈链算法介绍见博客：[跳跃的舞者，舞蹈链（Dancing Links）算法——求解精确覆盖问题](https://www.cnblogs.com/grenet/p/3145800.html)
 
 优化思路来自于博客：[算法实践——舞蹈链（Dancing Links）算法求解数独](https://www.cnblogs.com/grenet/p/3163550.html)
