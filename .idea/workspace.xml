@@ -20,12 +20,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5082f637-3ffc-4a8e-a961-121d0373281d" name="Default Changelist" comment="添加舞蹈链算法">
+      <change afterPath="$PROJECT_DIR$/document/danceLink.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/0finished" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/2easier" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/4normal" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Sudoku/dance_link_algorithm.go" beforeDir="false" afterPath="$PROJECT_DIR$/Sudoku/dance_link_algorithm.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Sudoku/drop_algorithm.go" beforeDir="false" afterPath="$PROJECT_DIR$/Sudoku/drop_algorithm.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sudoku/sudoku_func.go" beforeDir="false" afterPath="$PROJECT_DIR$/Sudoku/sudoku_func.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/easy" beforeDir="false" afterPath="$PROJECT_DIR$/test/easy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/dream" beforeDir="false" afterPath="$PROJECT_DIR$/test/1dream" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/easy" beforeDir="false" afterPath="$PROJECT_DIR$/test/3easy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/hard" beforeDir="false" afterPath="$PROJECT_DIR$/test/5hard" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/harder" beforeDir="false" afterPath="$PROJECT_DIR$/test/6harder" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/hardest1" beforeDir="false" afterPath="$PROJECT_DIR$/test/7hardest" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/hardest2" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,22 +71,23 @@
     <property name="configurable.Project.GOPATH.is.expanded" value="true" />
     <property name="go.import.settings.migrated" value="true" />
     <property name="go.tried.to.enable.integration.vgo.integrator" value="true" />
-    <property name="last_opened_file_path" value="$USER_HOME$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/document" />
     <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="go.sdk" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\smile\go\src\sudoku-solver\document" />
+      <recent name="C:\Users\smile\go\src\sudoku-solver\test" />
+      <recent name="C:\Users\smile\go\src\sudoku-solver\other" />
+      <recent name="C:\Users\smile\go\src\sudoku-solver" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\smile\go\src\sudoku-solver\other" />
       <recent name="C:\Users\smile\go\src\sudoku-solver\test" />
       <recent name="C:\Users\smile\go\src\sudoku-solver\Sudoku" />
       <recent name="C:\Users\smile\go\src\sudoku-solver\Sudoku\drop_algorithm" />
       <recent name="C:\Users\smile\go\src\sudoku-solver\Sudoku\" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\smile\go\src\sudoku-solver\other" />
-      <recent name="C:\Users\smile\go\src\sudoku-solver" />
-      <recent name="C:\Users\smile\go\src\sudoku-solver\test" />
     </key>
   </component>
   <component name="RunManager">
@@ -91,10 +101,10 @@
       <directory value="$PROJECT_DIR$" />
       <method v="2" />
     </configuration>
-    <configuration name="go build sudoku" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+    <configuration name="go build main.go" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
       <module name="sudoku-solver" />
       <working_directory value="$PROJECT_DIR$" />
-      <kind value="PACKAGE" />
+      <kind value="FILE" />
       <filePath value="$PROJECT_DIR$/main.go" />
       <package value="sudoku-solver" />
       <directory value="$PROJECT_DIR$" />
@@ -113,7 +123,7 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Go Build.go build sudoku" />
+        <item itemvalue="Go Build.go build main.go" />
       </list>
     </recent_temporary>
   </component>
@@ -147,26 +157,26 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="561" y="246" key="#Go_Modules/0.0.1536.824@0.0.1536.824" timestamp="1604804649648" />
-    <state x="223" y="67" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1604766442801">
+    <state x="223" y="67" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1606802208091">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="223" y="67" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1604766442801" />
-    <state x="522" y="213" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1605339339726">
+    <state x="223" y="67" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1606802208091" />
+    <state x="522" y="213" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1606808220133">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="522" y="213" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.824@0.0.1536.824" timestamp="1605339339726" />
+    <state x="522" y="213" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.824@0.0.1536.824" timestamp="1606808220133" />
     <state x="574" y="128" key="#com.intellij.ide.util.MemberChooser" timestamp="1606647664416">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="574" y="128" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1606647664416" />
-    <state x="653" y="165" width="788" height="493" key="#xdebugger.XInspectDialog" timestamp="1606640391017">
+    <state x="653" y="165" width="788" height="493" key="#xdebugger.XInspectDialog" timestamp="1606727061806">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="653" y="165" width="788" height="493" key="#xdebugger.XInspectDialog/0.0.1536.824@0.0.1536.824" timestamp="1606640391017" />
-    <state x="524" y="114" key="#xdebugger.evaluate" timestamp="1606720765912">
+    <state x="653" y="165" width="788" height="493" key="#xdebugger.XInspectDialog/0.0.1536.824@0.0.1536.824" timestamp="1606727061806" />
+    <state x="524" y="114" key="#xdebugger.evaluate" timestamp="1606727044808">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="524" y="114" key="#xdebugger.evaluate/0.0.1536.824@0.0.1536.824" timestamp="1606720765912" />
+    <state x="524" y="114" key="#xdebugger.evaluate/0.0.1536.824@0.0.1536.824" timestamp="1606727044808" />
     <state x="93" y="93" width="1350" height="638" key="DiffContextDialog" timestamp="1606642367551">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -175,6 +185,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="425" y="189" key="EditFileWatcherDialog/0.0.1536.824@0.0.1536.824" timestamp="1606647740213" />
+    <state x="548" y="167" key="FileChooserDialogImpl" timestamp="1606725619074">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="548" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1606725619074" />
     <state x="626" y="310" key="Github.ShareDialog" timestamp="1605285011442">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -183,50 +197,54 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="579" y="117" key="Github.UntrackedFilesDialog/0.0.1536.824@0.0.1536.824" timestamp="1605285036973" />
-    <state width="1493" height="284" key="GridCell.Tab.0.bottom" timestamp="1606721883905">
+    <state width="1493" height="292" key="GridCell.Tab.0.bottom" timestamp="1606829811048">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="284" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1606721883905" />
-    <state width="1493" height="284" key="GridCell.Tab.0.center" timestamp="1606721883904">
+    <state width="1493" height="292" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1606829811048" />
+    <state width="1493" height="292" key="GridCell.Tab.0.center" timestamp="1606829811048">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="284" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1606721883904" />
-    <state width="1493" height="284" key="GridCell.Tab.0.left" timestamp="1606721883904">
+    <state width="1493" height="292" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1606829811048" />
+    <state width="1493" height="292" key="GridCell.Tab.0.left" timestamp="1606829811047">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="284" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1606721883904" />
-    <state width="1493" height="284" key="GridCell.Tab.0.right" timestamp="1606721883904">
+    <state width="1493" height="292" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1606829811047" />
+    <state width="1493" height="292" key="GridCell.Tab.0.right" timestamp="1606829811048">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="284" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1606721883904" />
-    <state width="1493" height="290" key="GridCell.Tab.1.bottom" timestamp="1606721257382">
+    <state width="1493" height="292" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1606829811048" />
+    <state width="1493" height="331" key="GridCell.Tab.1.bottom" timestamp="1606812642490">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="290" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1606721257382" />
-    <state width="1493" height="290" key="GridCell.Tab.1.center" timestamp="1606721257382">
+    <state width="1493" height="331" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1606812642490" />
+    <state width="1493" height="331" key="GridCell.Tab.1.center" timestamp="1606812642490">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="290" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1606721257382" />
-    <state width="1493" height="290" key="GridCell.Tab.1.left" timestamp="1606721257382">
+    <state width="1493" height="331" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1606812642490" />
+    <state width="1493" height="331" key="GridCell.Tab.1.left" timestamp="1606812642490">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="290" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1606721257382" />
-    <state width="1493" height="290" key="GridCell.Tab.1.right" timestamp="1606721257382">
+    <state width="1493" height="331" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1606812642490" />
+    <state width="1493" height="331" key="GridCell.Tab.1.right" timestamp="1606812642490">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="290" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1606721257382" />
+    <state width="1493" height="331" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1606812642490" />
     <state x="270" y="57" key="SettingsEditor" timestamp="1606720525107">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="270" y="57" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1606720525107" />
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1605883522964">
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1606722413122">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1605883522964" />
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1606722413122" />
     <state width="775" height="419" key="XDebugger.FullValuePopup" timestamp="1605272469854">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="775" height="419" key="XDebugger.FullValuePopup/0.0.1536.824@0.0.1536.824" timestamp="1605272469854" />
+    <state x="311" y="148" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2" timestamp="1606812241857">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="311" y="148" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/0.0.1536.824@0.0.1536.824" timestamp="1606812241857" />
     <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1604998715454">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -247,20 +265,25 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
           <url>file://$PROJECT_DIR$/Sudoku/drop_algorithm.go</url>
-          <line>47</line>
+          <line>44</line>
           <option name="timeStamp" value="50" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
           <url>file://$PROJECT_DIR$/Sudoku/dance_link_algorithm.go</url>
-          <line>253</line>
-          <option name="timeStamp" value="83" />
+          <line>477</line>
+          <option name="timeStamp" value="87" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/Sudoku/dance_link_algorithm.go</url>
+          <line>351</line>
+          <option name="timeStamp" value="101" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/Sudoku/dance_link_algorithm.go</url>
+          <line>250</line>
+          <option name="timeStamp" value="110" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
-    <watches-manager>
-      <configuration name="GoApplicationRunConfiguration">
-        <watch expression="danceLink.AnsStack" language="go" />
-      </configuration>
-    </watches-manager>
   </component>
 </project>

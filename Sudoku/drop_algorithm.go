@@ -1,7 +1,5 @@
 package Sudoku
 
-import "fmt"
-
 //摒弃法 https://www.cnblogs.com/grenet/p/3138654.html
 
 // 空白单元格 blankCell
@@ -40,7 +38,7 @@ func FillAllOnlyCells(sudoku *Sudoku) {
 }
 
 // 栈缓存搜索(dfs)可解答案
-func DropSolver(sudoku *Sudoku) {
+func DropSolver(sudoku *Sudoku) bool {
 	// 维护一个查找步骤栈
 	var stepStack []stepRecord
 
@@ -49,8 +47,7 @@ findBlankCell:
 	cell := findBlankCellFromIdx(sudoku, 0)
 	//	没有空白单元格 -> 输出解
 	if cell == nil { // 已补全所有
-		fmt.Println("已找到解")
-		return
+		return true
 	}
 	// 有空白单元格 -> 找唯一单元格
 	var hasOnlyCell = false
@@ -106,8 +103,7 @@ checkNoSolutionCell:
 isExistNoSolutionCell:
 	// 步骤栈为空，无解
 	if len(stepStack) == 0 {
-		fmt.Println("无解")
-		return
+		return false
 	}
 	// 步骤栈非空
 	// 恢复步骤栈最后状态， 并找该单元格下一个可能解
@@ -192,7 +188,7 @@ func findBlankCellFromIdx(sudoku *Sudoku, startIdx uint8) *Cell {
 	return nil
 }
 
-// 获取给定单元格所关联的其他单元格，所占用数字的信息(不重复)
+// 获取给定单元格所关联的其他单元格，所占用数字的信息(不重复)  便于其他算法复用
 func getCellUsedCount(cell *Cell) [10]uint8 {
 	result := [10]uint8{}
 	//标记已用数
