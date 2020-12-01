@@ -1,10 +1,5 @@
 package Sudoku
 
-import (
-	"fmt"
-	"time"
-)
-
 // 精确覆盖问题的定义：给定一个由0-1组成的矩阵，是否能找到一个行的集合，使得集合中每一列都恰好包含一个1
 
 type DanceLink struct {
@@ -19,9 +14,6 @@ type DanceLink struct {
 // 集合存在性定义
 var EXIST = struct{}{}
 
-var removeNodesTimeCostMS int64
-var markNodesTimeCostMS int64
-
 //元素类
 type node struct {
 	arg    int //  未定义参数，便于header使用计数优化
@@ -35,7 +27,6 @@ type node struct {
 
 // 标记列首元素C，返回被标记的元素集合
 func (danceLink *DanceLink) markOneHeaderNode(header *node) (map[*node]struct{}, []int, []map[*node]struct{}) {
-	startTime := time.Now().UnixNano()
 	markedNodesSet := make(map[*node]struct{}) // 当前列首元素所标记的结果
 
 	var rowNumSet []int                           // 涉及到的行号集合
@@ -48,7 +39,6 @@ func (danceLink *DanceLink) markOneHeaderNode(header *node) (map[*node]struct{},
 		rowNumSet = append(rowNumSet, cNode.RowNum)
 		rNode := cNode.Right
 		rowNumLinkHeadersSet = append(rowNumLinkHeadersSet, make(map[*node]struct{}))
-		//debugTimer := 0
 		for rNode != cNode {
 			markedNodesSet[rNode] = EXIST
 			rowNumLinkHeadersSet[len(rowNumSet)-1][danceLink.Headers[rNode.ColNum]] = EXIST
@@ -56,15 +46,11 @@ func (danceLink *DanceLink) markOneHeaderNode(header *node) (map[*node]struct{},
 		}
 		cNode = cNode.Down
 	}
-	endTime := time.Now().UnixNano()
-	markNodesTimeCostMS += (endTime - startTime) / 1e6
 	return markedNodesSet, rowNumSet, rowNumLinkHeadersSet
 }
 
 // 删除元素
 func (danceLink *DanceLink) removeNodes(allNodesSet map[*node]struct{}) {
-	startTime := time.Now().UnixNano()
-
 	// 不修改node本身的标记，仅修改相邻节点的信息
 	//1. 删除节点两个相对方向都是非删除节点，直接删除并重建链
 	//2. 当删除节点的一方向为删除节点，另外相对方向为非删除节点时，非删除节点连接到顺次的第一个非删除节点
@@ -76,12 +62,11 @@ func (danceLink *DanceLink) removeNodes(allNodesSet map[*node]struct{}) {
 		_, isRightExist := allNodesSet[node.Right]
 		_, isUpExist := allNodesSet[node.Up]
 		_, isDownExist := allNodesSet[node.Down]
-		//log.Println(isUpExist, isDownExist, isLeftExist, isRightExist)
+
 		if isUpExist && !isDownExist { //pNode向上找到第一个不是删除节点的节点
 			pNode := node.Up
 			for _, exist := allNodesSet[pNode]; exist; _, exist = allNodesSet[pNode] {
 				pNode = pNode.Up
-				//log.Println("向上查找",exist,allNodesSet[pNode])
 			}
 			node.Down.Up = pNode
 			pNode.Down = node.Down
@@ -90,7 +75,6 @@ func (danceLink *DanceLink) removeNodes(allNodesSet map[*node]struct{}) {
 			pNode := node.Down
 			for _, exist := allNodesSet[pNode]; exist; _, exist = allNodesSet[pNode] {
 				pNode = pNode.Down
-				//log.Println("向下查找",exist,allNodesSet[pNode])
 			}
 			node.Up.Down = pNode
 			pNode.Up = node.Up
@@ -99,7 +83,6 @@ func (danceLink *DanceLink) removeNodes(allNodesSet map[*node]struct{}) {
 			pNode := node.Left
 			for _, exist := allNodesSet[pNode]; exist; _, exist = allNodesSet[pNode] {
 				pNode = pNode.Left
-				//log.Println("向左查找")
 			}
 			node.Right.Left = pNode
 			pNode.Right = node.Right
@@ -108,7 +91,6 @@ func (danceLink *DanceLink) removeNodes(allNodesSet map[*node]struct{}) {
 			pNode := node.Right
 			for _, exist := allNodesSet[pNode]; exist; _, exist = allNodesSet[pNode] {
 				pNode = pNode.Right
-				//log.Println("向右查找")
 			}
 			node.Left.Right = pNode
 			pNode.Left = node.Left
@@ -122,11 +104,7 @@ func (danceLink *DanceLink) removeNodes(allNodesSet map[*node]struct{}) {
 			node.Left.Right = node.Right
 			node.Right.Left = node.Left
 		}
-
 	}
-
-	endTime := time.Now().UnixNano()
-	removeNodesTimeCostMS += (endTime - startTime) / 1e6
 }
 
 // 恢复元素
@@ -146,7 +124,6 @@ func (danceLink *DanceLink) resumeNodesFromBack(allNodesSet map[*node]struct{}) 
 
 // 原始舞蹈链算法
 func BaseDanceLinkXSolver(data [][]int) []int {
-
 	danceLink := new(DanceLink)
 	//根据列数创建
 	dataRowLength := len(data)
@@ -234,14 +211,10 @@ func BaseDanceLinkXSolver(data [][]int) []int {
 		}
 	}
 
-	// DEBUG
-	//log.Print(checkDanceLinkLegal(danceLink))
-
 	// 递归求解
 	if dancing(danceLink) == true {
 		return danceLink.AnsStack
 	} else {
-		fmt.Println("无解")
 		return []int{}
 	}
 
@@ -391,7 +364,7 @@ func dancing(danceLink *DanceLink) bool {
 		10、若没有，回标元素C，返回False，退出函数。
 	*/
 	//log.Println(danceLink.AnsStack)
-	//log.Print("入口", checkDanceLinkLegal(danceLink))
+	//log.Print("入口合法性检查", checkDanceLinkLegal(danceLink))
 	if danceLink.Headers[0].Right == danceLink.Headers[0] {
 		return true
 	}
@@ -407,7 +380,7 @@ func dancing(danceLink *DanceLink) bool {
 
 	markedNodesSet, rowNumSet, rowNumLinkHeadersSet := danceLink.markOneHeaderNode(hNode)
 
-	//log.Print("标识前删除前", checkDanceLinkLegal(danceLink))
+	//log.Print("标识前删除前合法性检查", checkDanceLinkLegal(danceLink))
 	for idx, rowNum := range rowNumSet {
 		// 深copy markedNodesSet到allMarkedNodesSet
 		allMarkedNodesSet := make(map[*node]struct{})
@@ -421,14 +394,14 @@ func dancing(danceLink *DanceLink) bool {
 				allMarkedNodesSet[node] = EXIST
 			}
 		}
-		//log.Print("标识后删除前", checkDanceLinkLegal(danceLink))
+		//log.Print("标识后删除前合法性检查", checkDanceLinkLegal(danceLink))
 		// 删除这一行关联的其他列首元素
 		danceLink.removeNodes(allMarkedNodesSet)
 
 		//行号加入答案栈,此处应该-1，去掉header
 		danceLink.AnsStack = append(danceLink.AnsStack, rowNum-1)
 
-		//log.Print("删除后", checkDanceLinkLegal(danceLink))
+		//log.Print("删除后合法性检查", checkDanceLinkLegal(danceLink))
 		// 递归
 		ok := dancing(danceLink)
 		if ok {
@@ -438,7 +411,7 @@ func dancing(danceLink *DanceLink) bool {
 			danceLink.resumeNodesFromBack(allMarkedNodesSet)
 
 			danceLink.AnsStack = danceLink.AnsStack[0 : len(danceLink.AnsStack)-1]
-			//log.Print("恢复后", checkDanceLinkLegal(danceLink))
+			//log.Print("恢复后合法性检查", checkDanceLinkLegal(danceLink))
 		}
 	}
 	//所有的情况均找完
@@ -463,26 +436,21 @@ func checkDanceLinkLegal(danceLink *DanceLink) bool {
 	}
 	head := header.Right
 	for head != header {
-		//log.Println("1")
 		cNode := head.Down  //遍历headers
 		for cNode != head { //
-			//log.Println("2")
 			if !isLegalNode(cNode) {
 				return false
 			}
 			rNode := cNode.Right
 			for rNode != cNode {
-				//log.Println("3")
 				if !isLegalNode(rNode) {
 					return false
 				}
 				rNode = rNode.Right
-
 			}
 			cNode = cNode.Down
 		}
 		head = head.Right
 	}
-
 	return true
 }
