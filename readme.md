@@ -55,9 +55,9 @@
 
 ![](document/danceLink.png)
 
-舞蹈链算法介绍见博客：[跳跃的舞者，舞蹈链（Dancing Links）算法——求解精确覆盖问题](https://www.cnblogs.com/grenet/p/3145800.html)
+* 舞蹈链算法介绍见博客：[跳跃的舞者，舞蹈链（Dancing Links）算法——求解精确覆盖问题](https://www.cnblogs.com/grenet/p/3145800.html)
 
-优化思路来自于博客：[算法实践——舞蹈链（Dancing Links）算法求解数独](https://www.cnblogs.com/grenet/p/3163550.html)
+* 优化思路来自于博客：[算法实践——舞蹈链（Dancing Links）算法求解数独](https://www.cnblogs.com/grenet/p/3163550.html)
 
 主要优化有三点：
 
@@ -73,7 +73,7 @@
 测试结果基于400次重复求解用时均值，仅具有一定参考
 
 | 样例文件  | 深度优先搜索算法 | 舞蹈链算法 | 备注           |
-| :-------: | :--------------: | :--------: | -------------- |
+| :------- | :--------------: | :--------: | -------------- |
 | 0finished |       0 ms       |  0.557 ms  | 已完成的数独   |
 |  1dream   |     3.027 ms     |  2.904 ms  | 全空           |
 |  2easier  |     0.010 ms     |  0.567 ms  | 仅一个位置未填 |
