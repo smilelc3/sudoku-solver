@@ -68,7 +68,7 @@
 
 ## 测试与对比
 [test](test) 文件夹中，含有各种测试样例，包含号称
-[最难数独](https://baike.baidu.com/item/%E4%B8%96%E7%95%8C%E6%9C%80%E9%9A%BE%E6%95%B0%E7%8B%AC/13848819) 样例文件[hardest](test/7hardest)
+[最难数独](https://baike.baidu.com/item/%E4%B8%96%E7%95%8C%E6%9C%80%E9%9A%BE%E6%95%B0%E7%8B%AC/13848819) 样例文件[7hardest](test/7hardest)
 
 测试结果基于400次重复求解用时均值，仅具有一定参考
 

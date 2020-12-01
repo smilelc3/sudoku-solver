@@ -20,7 +20,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5082f637-3ffc-4a8e-a961-121d0373281d" name="Default Changelist" comment="修改readme">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/readme.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -221,10 +220,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="270" y="57" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1606720525107" />
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1606831214498">
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1606831920405">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1606831214498" />
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1606831920405" />
     <state width="775" height="419" key="XDebugger.FullValuePopup" timestamp="1605272469854">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
