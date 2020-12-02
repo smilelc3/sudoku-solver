@@ -19,9 +19,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5082f637-3ffc-4a8e-a961-121d0373281d" name="Default Changelist" comment="修改readme">
+    <list default="true" id="5082f637-3ffc-4a8e-a961-121d0373281d" name="Default Changelist" comment="修改注释">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sudoku/dance_link_algorithm.go" beforeDir="false" afterPath="$PROJECT_DIR$/Sudoku/dance_link_algorithm.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/readme.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -135,7 +135,8 @@
     <MESSAGE value="添加舞蹈链算法" />
     <MESSAGE value="完善舞蹈链算法" />
     <MESSAGE value="修改readme" />
-    <option name="LAST_COMMIT_MESSAGE" value="修改readme" />
+    <MESSAGE value="修改注释" />
+    <option name="LAST_COMMIT_MESSAGE" value="修改注释" />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
@@ -221,10 +222,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="270" y="57" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1606720525107" />
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1606832122732">
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1606833121621">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1606832122732" />
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1606833121621" />
     <state width="775" height="419" key="XDebugger.FullValuePopup" timestamp="1605272469854">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
