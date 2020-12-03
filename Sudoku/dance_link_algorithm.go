@@ -277,9 +277,13 @@ func DanceLinkSolver(sudoku *Sudoku) bool {
 	cons4CalcForward := func(boxIdx, val uint8) int {
 		return int(boxIdx)*9 + int(val) - 1 + 243
 	}
-	//cons4CalcBack := func(consCol int) (uint8, uint8) {
-	//	return uint8((consCol - 243) / 9), uint8((consCol-243)%9 + 1)
-	//}
+	cons4CalcBack := func(consCol int) (uint8, uint8) {
+		return uint8((consCol - 243) / 9), uint8((consCol-243)%9 + 1)
+	}
+
+	// 未使用约束3、约束4的反向计算
+	_ = cons3CalcBack
+	_ = cons4CalcBack
 
 	var row, col uint8
 	for row = 0; row < 9; row++ {
@@ -333,8 +337,6 @@ func DanceLinkSolver(sudoku *Sudoku) bool {
 						row, col = cons1CalcBack(colIdx) //条件1
 					case 2:
 						row, val = cons2CalcBack(colIdx) //条件2
-					case 3:
-						col, val = cons3CalcBack(colIdx) //条件3
 					default:
 						break
 					}
