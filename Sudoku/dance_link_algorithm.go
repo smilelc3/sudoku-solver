@@ -3,20 +3,20 @@ package Sudoku
 // 精确覆盖问题的定义：给定一个由0-1组成的矩阵，是否能找到一个行的集合，使得集合中每一列都恰好包含一个1
 
 type DanceLink struct {
-	Headers []*node
+	Headers []*node // arg参数便于header使用计数优化
 	Nodes   []*node // 存所有Node
 
 	RowFirstNode []*node //记录每行第一个节点，辅助空间，便于从行查找，构建左右链
 
 	AnsStack []int //答案栈
+
+	AllAns        [][]int // 存所有答案
+	needSolvedNum int     //需要解的个数
 }
 
-// 集合存在性定义
-var EXIST = struct{}{}
-
-//元素类
+//Node节点类u
 type node struct {
-	arg    int //  未定义参数，便于header使用计数优化
+	arg    int //  未定义参数
 	Left   *node
 	Right  *node
 	Up     *node
@@ -25,23 +25,32 @@ type node struct {
 	ColNum int
 }
 
+// 记录node方向备份，便于恢复
+type nodeDirectBackup struct {
+	RawNode      *node // 指向原始数据
+	RawNodeLeft  *node
+	RawNodeRight *node
+	RawNodeUp    *node
+	RawNodeDown  *node
+}
+
 // 标记列首元素C，返回被标记的元素集合
-func (danceLink *DanceLink) markOneHeaderNode(header *node) (map[*node]struct{}, []int, []map[*node]struct{}) {
-	markedNodesSet := make(map[*node]struct{}) // 当前列首元素所标记的结果
+func (danceLink *DanceLink) markOneHeaderNode(header *node) (map[*node]bool, []int, []map[*node]bool) {
+	markedNodesSet := make(map[*node]bool) // 当前列首元素所标记的结果
 
-	var rowNumSet []int                           // 涉及到的行号集合
-	var rowNumLinkHeadersSet []map[*node]struct{} // 行号对应的所关联的其他列首元素
+	var rowNumSet []int                       // 涉及到的行号集合
+	var rowNumLinkHeadersSet []map[*node]bool // 行号对应的所关联的其他列首元素
 
-	markedNodesSet[header] = EXIST
+	markedNodesSet[header] = true
 	cNode := header.Down
 	for cNode != header {
-		markedNodesSet[cNode] = EXIST
+		markedNodesSet[cNode] = true
 		rowNumSet = append(rowNumSet, cNode.RowNum)
 		rNode := cNode.Right
-		rowNumLinkHeadersSet = append(rowNumLinkHeadersSet, make(map[*node]struct{}))
+		rowNumLinkHeadersSet = append(rowNumLinkHeadersSet, make(map[*node]bool))
 		for rNode != cNode {
-			markedNodesSet[rNode] = EXIST
-			rowNumLinkHeadersSet[len(rowNumSet)-1][danceLink.Headers[rNode.ColNum]] = EXIST
+			markedNodesSet[rNode] = true
+			rowNumLinkHeadersSet[len(rowNumSet)-1][danceLink.Headers[rNode.ColNum]] = true
 			rNode = rNode.Right
 		}
 		cNode = cNode.Down
@@ -49,8 +58,8 @@ func (danceLink *DanceLink) markOneHeaderNode(header *node) (map[*node]struct{},
 	return markedNodesSet, rowNumSet, rowNumLinkHeadersSet
 }
 
-// 删除元素
-func (danceLink *DanceLink) removeNodes(allNodesSet map[*node]struct{}) {
+// 直接删除元素
+func (danceLink *DanceLink) removeNodes(allNodesSet map[*node]bool) {
 	// 不修改node本身的标记，仅修改相邻节点的信息
 	//1. 删除节点两个相对方向都是非删除节点，直接删除并重建链
 	//2. 当删除节点的一方向为删除节点，另外相对方向为非删除节点时，非删除节点连接到顺次的第一个非删除节点
@@ -107,8 +116,8 @@ func (danceLink *DanceLink) removeNodes(allNodesSet map[*node]struct{}) {
 	}
 }
 
-// 恢复元素
-func (danceLink *DanceLink) resumeNodesFromBack(allNodesSet map[*node]struct{}) {
+// 直接恢复元素
+func (danceLink *DanceLink) resumeNodes(allNodesSet map[*node]bool) {
 	for node := range allNodesSet {
 		//依照本身标记恢复
 		node.Up.Down = node
@@ -122,10 +131,56 @@ func (danceLink *DanceLink) resumeNodesFromBack(allNodesSet map[*node]struct{}) 
 
 }
 
-// 原始舞蹈链算法
-func BaseDanceLinkXSolver(data [][]int) []int {
+// 删除元素,并返回备份
+func (danceLink *DanceLink) removeNodesReturnBackup(allNodesSet map[*node]bool) []nodeDirectBackup {
+	var nodesDirectBackup []nodeDirectBackup
+
+	// 先备份数据
+	for node := range allNodesSet {
+		backup := nodeDirectBackup{}
+		backup.RawNode = node
+		backup.RawNodeUp = node.Up
+		backup.RawNodeDown = node.Down
+		backup.RawNodeLeft = node.Left
+		backup.RawNodeRight = node.Right
+		nodesDirectBackup = append(nodesDirectBackup, backup)
+
+	}
+	// 再从舞蹈链中移除
+	for node := range allNodesSet {
+		node.Up.Down = node.Down
+		node.Down.Up = node.Up
+		node.Left.Right = node.Right
+		node.Right.Left = node.Left
+		danceLink.Headers[node.ColNum].arg-- //header计数更新
+	}
+	return nodesDirectBackup
+}
+
+// 依靠备份恢复元素
+func (danceLink *DanceLink) resumeNodesByBackup(nodesDirectBackup []nodeDirectBackup) {
+	for _, backup := range nodesDirectBackup {
+		//依照本身标记恢复
+		backup.RawNodeUp.Down = backup.RawNode
+		backup.RawNodeDown.Up = backup.RawNode
+		backup.RawNodeLeft.Right = backup.RawNode
+		backup.RawNodeRight.Left = backup.RawNode
+
+		//恢复header计数
+		danceLink.Headers[backup.RawNode.ColNum].arg++
+	}
+
+}
+
+// 原始舞蹈链算法,solvedNum可指定需要的解个数，当=-1时，计算所有的解；当有限解个数<solvedNum时，仅返回有限解长度(无解时为0)
+func BaseDanceLinkXSolver(data [][]int, solvedNum int) [][]int {
 	danceLink := new(DanceLink)
+	if solvedNum < -1 {
+		panic("solvedNum必须大于等于-1，当=-1时，计算所有的解；当有限解个数<solvedNum时，仅返回有限解长度(无解时为0)")
+	}
+	danceLink.needSolvedNum = solvedNum // 设置解个数
 	//根据列数创建
+
 	dataRowLength := len(data)
 	dataColLength := len(data[0])
 
@@ -212,12 +267,8 @@ func BaseDanceLinkXSolver(data [][]int) []int {
 	}
 
 	// 递归求解
-	if dancing(danceLink) == true {
-		return danceLink.AnsStack
-	} else {
-		return []int{}
-	}
-
+	dancing(danceLink)
+	return danceLink.AllAns
 }
 
 // 总入口函数
@@ -321,11 +372,12 @@ func DanceLinkSolver(sudoku *Sudoku) bool {
 		}
 	}
 
-	AnsStack := BaseDanceLinkXSolver(data)
+	//仅需一个解
+	AllAns := BaseDanceLinkXSolver(data, 1)
 
 	/*第三步 转换答案到数独*/
-	if data != nil {
-		for _, rowIdx := range AnsStack {
+	if len(AllAns) > 0 && data != nil {
+		for _, rowIdx := range AllAns[0] {
 			rowData := data[rowIdx] // 必有四个数字为1，其余为0
 			var row, col, val uint8
 			timer := 0
@@ -352,7 +404,7 @@ func DanceLinkSolver(sudoku *Sudoku) bool {
 }
 
 // 舞蹈链递归函数
-func dancing(danceLink *DanceLink) bool {
+func dancing(danceLink *DanceLink) {
 	/*
 		1、dancing函数的入口
 		2、判断Head.Right=Head？，若是，输出答案，返回True，退出函数。
@@ -365,10 +417,16 @@ func dancing(danceLink *DanceLink) bool {
 		9、获得元素C所在列的下一个元素，若有，跳转到步骤6
 		10、若没有，回标元素C，返回False，退出函数。
 	*/
-	//log.Println(danceLink.AnsStack)
 	//log.Print("入口合法性检查", checkDanceLinkLegal(danceLink))
 	if danceLink.Headers[0].Right == danceLink.Headers[0] {
-		return true
+		//找到解,记录
+		if danceLink.needSolvedNum > 0 {
+			danceLink.needSolvedNum--
+		}
+		ans := make([]int, len(danceLink.AnsStack))
+		copy(ans, danceLink.AnsStack)
+		danceLink.AllAns = append(danceLink.AllAns, ans)
+		return
 	}
 
 	hNode := danceLink.Headers[0].Right
@@ -385,47 +443,51 @@ func dancing(danceLink *DanceLink) bool {
 	//log.Print("标识前删除前合法性检查", checkDanceLinkLegal(danceLink))
 	for idx, rowNum := range rowNumSet {
 		// 深copy markedNodesSet到allMarkedNodesSet
-		allMarkedNodesSet := make(map[*node]struct{})
+		allMarkedNodesSet := make(map[*node]bool)
 		for node := range markedNodesSet {
-			allMarkedNodesSet[node] = EXIST
+			allMarkedNodesSet[node] = true
 		}
 		// 标示该同行的其余body元素所在的列首元素
 		for header := range rowNumLinkHeadersSet[idx] {
 			linkMarkedNodesSet, _, _ := danceLink.markOneHeaderNode(header)
 			for node := range linkMarkedNodesSet {
-				allMarkedNodesSet[node] = EXIST
+				allMarkedNodesSet[node] = true
 			}
 		}
 		//log.Print("标识后删除前合法性检查", checkDanceLinkLegal(danceLink))
 		// 删除这一行关联的其他列首元素
-		danceLink.removeNodes(allMarkedNodesSet)
+		//danceLink.removeNodes(allMarkedNodesSet)  //method 1
+		nodesBackup := danceLink.removeNodesReturnBackup(allMarkedNodesSet) //method 2
 
 		//行号加入答案栈,此处应该-1，去掉header
 		danceLink.AnsStack = append(danceLink.AnsStack, rowNum-1)
 
 		//log.Print("删除后合法性检查", checkDanceLinkLegal(danceLink))
 		// 递归
-		ok := dancing(danceLink)
-		if ok {
-			return ok
-		} else {
+		dancing(danceLink)
+		// 如果还有解需要找
+		if danceLink.needSolvedNum > 0 || danceLink.needSolvedNum == -1 {
 			// 回滚
-			danceLink.resumeNodesFromBack(allMarkedNodesSet)
+			//danceLink.resumeNodes(allMarkedNodesSet) //method 1
+			danceLink.resumeNodesByBackup(nodesBackup) //method 2
 
 			danceLink.AnsStack = danceLink.AnsStack[0 : len(danceLink.AnsStack)-1]
 			//log.Print("恢复后合法性检查", checkDanceLinkLegal(danceLink))
+		} else {
+			return
 		}
+
 	}
 	//所有的情况均找完
-	return false
+	return
 
 }
 
 // debug用，检查舞蹈链是否合法
 func checkDanceLinkLegal(danceLink *DanceLink) bool {
 	header := danceLink.Headers[0]
-	allNodesSet := make(map[*node]struct{})
-	allNodesSet[header] = EXIST
+	allNodesSet := make(map[*node]bool)
+	allNodesSet[header] = true
 	pNode := header.Right
 	if pNode == header {
 		return true
